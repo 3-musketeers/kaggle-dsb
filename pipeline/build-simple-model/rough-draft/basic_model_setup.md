@@ -22,7 +22,12 @@ What needs to be setup?
 4. download tensorflow and make sure it works
 5. download keras and make sure it works
 
-
+http://machinelearningmastery.com/introduction-python-deep-learning-library-keras/
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#pip-installation-on-windows
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#test-the-tensorflow-installation
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#optional-install-cuda-gpus-on-linux
+http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/#abstract
+https://www.visualstudio.com/vs/getting-started/
 
 
 ## Issues
