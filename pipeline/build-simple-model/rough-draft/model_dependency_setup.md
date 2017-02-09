@@ -1,7 +1,7 @@
 # Basic Model Package, GPU Setup Instructions
 *goal: setup the entire programming environment to be able to run [this](https://github.com/3-musketeers/kaggle-dsb/blob/master/pipeline/build-simple-model/rough-draft/u_net_segmentation_approach.ipynb) ipython notebook*
 
-What needs to be setup?
+> What needs to be setup?
 *(regardless you will need GPU, and a programming environment on your computer because you probably will not be doing all experimentation on the cloud, so focus on setting up GPU and tensorflow, then worry about/think about the data problem later)*
 
 ## General Components 
