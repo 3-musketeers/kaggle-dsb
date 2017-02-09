@@ -33,7 +33,7 @@ What needs to be setup?
 6. install tensorflow by typing into the anaconda terminal: `pip install tensorflow-gpu`
 7. install any other packages
 8. note for ipython notebooks you need to open them from the anaconda prompt while you are `activate kaggledsb` and in that specific virtual environment
-5. download keras and make sure it works
+5. install keras by typing into the anaconda terminal: `pip install keras`
 
 ## Other Resources
 * http://machinelearningmastery.com/introduction-python-deep-learning-library-keras/
