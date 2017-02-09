@@ -22,7 +22,11 @@ What needs to be setup?
    2. run the `deviceQuery` and `bandwidthTest` programs as stated
    3. add to the main program, `getchar()` before the last exit statement (this will prevent the window from closing)
    4. If everything works then cuda toolkit should be all setup
-3. download the cuDNN, and make sure it works
+3. download the cuDNN ([here](https://developer.nvidia.com/rdp/cudnn-download))
+   1. ignore their download instructions
+   2. make sure you know where your cuda directory is located (you can look at the CUDA_PATH to find out), but it should look like: `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0`
+   3. unzip the folder
+   4. copy the contents according to these instructions ([reference](http://stackoverflow.com/questions/36248056/how-to-setup-cudnn-with-theano-on-windows-7-64-bit))
 4. download tensorflow and make sure it works
 5. download keras and make sure it works
 
