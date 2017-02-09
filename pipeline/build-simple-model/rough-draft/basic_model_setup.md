@@ -32,6 +32,7 @@ https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_starte
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#test-the-tensorflow-installation
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#optional-install-cuda-gpus-on-linux
 http://www.heatonresearch.com/2017/01/01/tensorflow-windows-gpu.html
+http://www.pyimagesearch.com/2016/07/04/how-to-install-cuda-toolkit-and-cudnn-for-deep-learning/
 
 ## Issues
 * What if the data cannot fit on the computer?
