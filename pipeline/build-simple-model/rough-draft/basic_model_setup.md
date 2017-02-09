@@ -35,13 +35,13 @@ What needs to be setup?
 8. note for ipython notebooks you need to open them from the anaconda prompt while you are `activate kaggledsb` and in that specific virtual environment
 5. download keras and make sure it works
 
-
-http://machinelearningmastery.com/introduction-python-deep-learning-library-keras/
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#pip-installation-on-windows
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#test-the-tensorflow-installation
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#optional-install-cuda-gpus-on-linux
-http://www.heatonresearch.com/2017/01/01/tensorflow-windows-gpu.html
-http://www.pyimagesearch.com/2016/07/04/how-to-install-cuda-toolkit-and-cudnn-for-deep-learning/
+## Other Resources
+* http://machinelearningmastery.com/introduction-python-deep-learning-library-keras/
+* https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#pip-installation-on-windows
+* https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#test-the-tensorflow-installation
+* https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#optional-install-cuda-gpus-on-linux
+* http://www.heatonresearch.com/2017/01/01/tensorflow-windows-gpu.html
+* http://www.pyimagesearch.com/2016/07/04/how-to-install-cuda-toolkit-and-cudnn-for-deep-learning/
 
 ## Issues
 * What if the data cannot fit on the computer?
