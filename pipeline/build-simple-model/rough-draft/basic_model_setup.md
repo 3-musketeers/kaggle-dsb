@@ -32,6 +32,8 @@ https://www.visualstudio.com/vs/getting-started/
 http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/#verify-installation
 http://www.heatonresearch.com/2017/01/01/tensorflow-windows-gpu.html
 
+C:\ProgramData\NVIDIA Corporation\CUDA Samples\v8.0\1_Utilities\bandwidthTest
+
 ## Issues
 * What if the data cannot fit on the computer?
   * competition data- experiment with the sample
