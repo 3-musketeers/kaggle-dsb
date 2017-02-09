@@ -29,6 +29,8 @@ https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_starte
 http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/#abstract
 https://www.visualstudio.com/vs/getting-started/
 
+http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/#verify-installation
+http://www.heatonresearch.com/2017/01/01/tensorflow-windows-gpu.html
 
 ## Issues
 * What if the data cannot fit on the computer?
