@@ -27,7 +27,12 @@ What needs to be setup?
    2. make sure you know where your cuda directory is located (you can look at the CUDA_PATH to find out), but it should look like: `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0`
    3. unzip the folder
    4. copy the contents according to these instructions ([reference](http://stackoverflow.com/questions/36248056/how-to-setup-cudnn-with-theano-on-windows-7-64-bit))
-4. download tensorflow and make sure it works
+4. follow [these instructions](http://www.heatonresearch.com/2017/01/01/tensorflow-windows-gpu.html) to create a anaconda virtual environment dedicated to the competition named: "kaggledsb"
+   1. a conda-cheatsheet is [here](https://conda.io/docs/_downloads/conda-cheatsheet.pdf)
+5. to get into your new virual environment type into anaconda prompt: `activate kaggledsb`
+6. install tensorflow by typing into the anaconda terminal: `pip install tensorflow-gpu`
+7. install any other packages
+8. note for ipython notebooks you need to open them from the anaconda prompt while you are `activate kaggledsb` and in that specific virtual environment
 5. download keras and make sure it works
 
 
