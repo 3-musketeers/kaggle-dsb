@@ -16,23 +16,22 @@ What needs to be setup?
    2. luna16 data
 
 ## Pending Process
-1. setup visual studio make sure it is working
-2. redownload the Cuda tool kit and make sure it works with the visual studio compiler
+1. download community version of visual studio ([here](https://www.visualstudio.com/downloads/))
+2. follow all instructions [here](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/#verify-installation) to setup the cuda tool kit
+   1. make sure you follow [these instructions](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/#compiling-examples)
+   2. run the `deviceQuery` and `bandwidthTest` programs as stated
+   3. add to the main program, `getchar()` before the last exit statement (this will prevent the window from closing)
+   4. If everything works then cuda toolkit should be all setup
 3. download the cuDNN, and make sure it works
 4. download tensorflow and make sure it works
 5. download keras and make sure it works
+
 
 http://machinelearningmastery.com/introduction-python-deep-learning-library-keras/
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#pip-installation-on-windows
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#test-the-tensorflow-installation
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md#optional-install-cuda-gpus-on-linux
-http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/#abstract
-https://www.visualstudio.com/vs/getting-started/
-
-http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/#verify-installation
 http://www.heatonresearch.com/2017/01/01/tensorflow-windows-gpu.html
-
-C:\ProgramData\NVIDIA Corporation\CUDA Samples\v8.0\1_Utilities\bandwidthTest
 
 ## Issues
 * What if the data cannot fit on the computer?
