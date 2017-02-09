@@ -3,6 +3,8 @@
 
 What needs to be setup?
 *(regardless you will need GPU, and a programming environment on your computer because you probably will not be doing all experimentation on the cloud, so focus on setting up GPU and tensorflow, then worry about/think about the data problem later)*
+
+## General Process
 1. GPU 
    1. CUDA
    2. CUDA Tool kit
@@ -12,6 +14,16 @@ What needs to be setup?
 4. Data
    1. competition data
    2. luna16 data
+
+## Pending Process
+1. setup visual studio make sure it is working
+2. redownload the Cuda tool kit and make sure it works with the visual studio compiler
+3. download the cuDNN, and make sure it works
+4. download tensorflow and make sure it works
+5. download keras and make sure it works
+
+
+
 
 ## Issues
 * What if the data cannot fit on the computer?
