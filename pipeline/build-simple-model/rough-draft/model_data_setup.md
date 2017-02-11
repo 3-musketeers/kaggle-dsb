@@ -32,10 +32,11 @@
 > 1. Bit torrent directly to the hard drive
 > 2. Uncompress directly on the hard drive
 
-
 **How can you download torrent straight to the external hard drive?**
+> Change the path and download.
 
 **How can you uncompress in the external hard drive?**
+> As you would normally do it on your hard drive.
 
 ## 4TB External Drive
 Contains the entire kaggle dataset, as well as the entire luna16 dataset.
