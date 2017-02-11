@@ -1,4 +1,4 @@
-# Basic Model Data Setup Instructions
+# Basic Model Data Brianstorming
 *what data to download to be able to start experimenting and running the code
 
 
