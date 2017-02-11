@@ -20,6 +20,9 @@
 **What is the safest torrent client?**
 > Gonna stick with Bittorrent's supported client [here](http://www.bittorrent.com/).
 
+**How can you download torrent straight to the external hard drive?**
+
+**How can you uncompress in the external hard drive?**
 
 ## 4TB External Drive
 Contains the entire kaggle dataset, as well as the entire luna16 dataset.
