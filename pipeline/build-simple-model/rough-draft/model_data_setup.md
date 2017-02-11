@@ -20,6 +20,19 @@
 **What is the safest torrent client?**
 > Gonna stick with Bittorrent's supported client [here](http://www.bittorrent.com/).
 
+**Is constantly reading from a hard drive bad?**
+> It should not be bad, just make sure you don't power it on or off multiple times a day.
+
+**Is it safe to unzip or extract directly on a hard drive?**
+> Yes
+**Is it safe to torrent to the hard drive?**
+> Yes
+
+**How can you get all of the data (9 luna sets, 1 kaggle set), uncompressed, safetly into the hard drive?**
+> 1. Bit torrent directly to the hard drive
+> 2. Uncompress directly on the hard drive
+
+
 **How can you download torrent straight to the external hard drive?**
 
 **How can you uncompress in the external hard drive?**
