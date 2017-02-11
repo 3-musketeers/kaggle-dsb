@@ -10,6 +10,16 @@
    * Copy over subsets of the entire dsb/luna16 datasets to your local drive 
    * Use the local drive subsets as your sample sets of data
 
+## Notes:
+**Torrents:**
+> In the BitTorrent file distribution system, a torrent file is a computer file that contains metadata about files and folders to be distributed, and usually also a list of the network locations of trackers, which are computers that help participants in the system find each other and form efficient distribution groups called swarms.
+
+**Is bit torrent safe?**:
+> It should be as it is offered as an option for both competitions.
+
+**What is the safest torrent client?**
+> Gonna stick with Bittorrent's supported client [here](http://www.bittorrent.com/).
+
 
 ## 4TB External Drive
 Contains the entire kaggle dataset, as well as the entire luna16 dataset.
