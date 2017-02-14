@@ -29,4 +29,12 @@ df_node["file"] = df_node["seriesuid"].map(lambda file_name: get_filename(file_l
 df_node = df_node.dropna()
 
 # Looping over the image files
-for fcount, img_file in enumerate(tqdm(FILE_LIST)): 
+for fcount, img_file in enumerate(tqdm(FILE_LIST)):
+    mini_df = df_node[df_node["file"]==img_file] # get all nodules associate with file
+    if mini_df.shape[0]>0: # some files may not have a nodule--skipping those
+        # load the data once
+        itk_img = sitk.ReadImage(img_file)
+        img_array = sitk.GetArrayFromImage(itk_img) # indexes are z,y,x (notice the ordering)
+        num_z, height, width = img_array.shape
+        origin = np.array(itk_img.GetOrigin())      # x,y,z Origin in world coordinates (mm)
+        spacing = np.array(itk_img.GetSpacing())    # spacing of voxels in world coordinates (mm)
