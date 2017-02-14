@@ -12,3 +12,8 @@ except:
 
 # (insert helper functions here)
 
+# Getting list of image files
+LUNA_DATA_PATH = '../../../../data/luna16/'
+LUNA_SUBSET_PATH = LUNA_DATA_PATH + 'subset0/'
+OUTPUT_PATH = '../../../../output/build-simple-model'
+FILE_LIST = glob(LUNA_SUBSET_PATH + '*.mhd')
