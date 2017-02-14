@@ -38,3 +38,5 @@ for fcount, img_file in enumerate(tqdm(FILE_LIST)):
         num_z, height, width = img_array.shape
         origin = np.array(itk_img.GetOrigin())      # x,y,z Origin in world coordinates (mm)
         spacing = np.array(itk_img.GetSpacing())    # spacing of voxels in world coordinates (mm)
+        # go through all nodes
+        for node_idx, cur_row in mini_df.iterrows(): 
