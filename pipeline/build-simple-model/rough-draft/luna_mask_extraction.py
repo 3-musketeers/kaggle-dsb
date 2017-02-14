@@ -1,4 +1,4 @@
-from __future__ import print_function, division
+# from __future__ import print_function, division
 import SimpleITK as sitk
 import numpy as np
 import csv
