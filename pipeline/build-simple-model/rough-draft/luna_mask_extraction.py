@@ -1,27 +1,3 @@
-import SimpleITK as sitk
-import numpy as np
-import csv
-from glob import glob
-import pandas as pd
-
-# path constants
-LUNA_DATA_PATH = '../../../../data/luna16/'
-LUNA_SUBSET_PATH = LUNA_DATA_PATH + 'subset0/'
-
-file_list = glob(LUNA_SUBSET_PATH + "*.mhd") # get all the mhd image files
-
-# Helper function to get rows in data frame associated with each file
-def get_filename(case):
-    global file_list
-    for f in file_list: # for every file in the list if the seriesuid is in the file name, return the file 
-        if case in f:
-            return(f)
-
-# The locations of the nodes
-df_node = pd.read_csv(LUNA_DATA_PATH + "annotations.csv")
-df_node["file"] = df_node["seriesuid"].apply(get_filename) # for every rowsave file name to the 'file' column of the row
-df_node = df_node.dropna() # if the seriesuid is not found in this subset, drop all the rows that have na as values for 'file' column
-
 # Looping over the image files
 fcount = 0
 for img_file in file_list:
