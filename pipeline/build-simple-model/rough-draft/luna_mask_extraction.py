@@ -10,3 +10,5 @@ except:
     print('TQDM does make much nicer wait bars...')
     tqdm = lambda x: x
 
+# (insert helper functions here)
+
