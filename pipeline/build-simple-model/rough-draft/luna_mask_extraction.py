@@ -45,7 +45,7 @@ for fcount, img_file in enumerate(tqdm(FILE_LIST)):
             node_z = cur_row["coordZ"]
             diam = cur_row["diameter_mm"]
             # just keep 3 slices
-            imgs = np.ndarray([3,height,width],dtype=np.float32)
+            imgs = np.ndarray([3,height,width],dtype=np.float32) # defining final products
             masks = np.ndarray([3,height,width],dtype=np.uint8)
             center = np.array([node_x, node_y, node_z])   # nodule center
             v_center = np.rint((center-origin)/spacing)  # nodule center in voxel space (still x,y,z ordering)
