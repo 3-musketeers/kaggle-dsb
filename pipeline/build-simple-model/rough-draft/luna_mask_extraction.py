@@ -51,4 +51,5 @@ for fcount, img_file in enumerate(tqdm(FILE_LIST)):
             v_center = np.rint((center-origin)/spacing)  # nodule center in voxel space (still x,y,z ordering)
             for i, i_z in enumerate(np.arange(int(v_center[2])-1,
                              int(v_center[2])+2).clip(0, num_z-1)): # clip prevents going out of bounds in Z
-                
+                mask = make_mask(center, diam, i_z*spacing[2]+origin[2],
+                                 width, height, spacing, origin)
