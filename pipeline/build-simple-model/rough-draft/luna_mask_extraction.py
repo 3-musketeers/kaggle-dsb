@@ -39,4 +39,13 @@ for fcount, img_file in enumerate(tqdm(FILE_LIST)):
         origin = np.array(itk_img.GetOrigin())      # x,y,z Origin in world coordinates (mm)
         spacing = np.array(itk_img.GetSpacing())    # spacing of voxels in world coordinates (mm)
         # go through all nodes
-        for node_idx, cur_row in mini_df.iterrows(): 
+        for node_idx, cur_row in mini_df.iterrows():
+            node_x = cur_row["coordX"]
+            node_y = cur_row["coordY"]
+            node_z = cur_row["coordZ"]
+            diam = cur_row["diameter_mm"]
+            # just keep 3 slices
+            imgs = np.ndarray([3,height,width],dtype=np.float32)
+            masks = np.ndarray([3,height,width],dtype=np.uint8)
+            center = np.array([node_x, node_y, node_z])   # nodule center
+            v_center = np.rint((center-origin)/spacing)  # nodule center in voxel space (still x,y,z ordering)
