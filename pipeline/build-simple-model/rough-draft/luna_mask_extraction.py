@@ -2,6 +2,7 @@
 import SimpleITK as sitk
 import numpy as np
 import csv
+import os
 from glob import glob
 import pandas as pd
 try:
@@ -53,3 +54,7 @@ for fcount, img_file in enumerate(tqdm(FILE_LIST)):
                              int(v_center[2])+2).clip(0, num_z-1)): # clip prevents going out of bounds in Z
                 mask = make_mask(center, diam, i_z*spacing[2]+origin[2],
                                  width, height, spacing, origin)
+                masks[i] = mask
+                imgs[i] = img_array[i_z]
+            np.save(os.path.join(OUTPUT_PATH,"images_%04d_%04d.npy" % (fcount, node_idx)),imgs)
+            np.save(os.path.join(OUTPUT_PATH,"masks_%04d_%04d.npy" % (fcount, node_idx)),masks)
