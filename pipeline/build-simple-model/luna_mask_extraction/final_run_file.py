@@ -56,7 +56,7 @@ def runall():
         # Getting list of image files
         LUNA_DATA_PATH = '../../../../data/luna16/'
         LUNA_SUBSET_PATH = LUNA_DATA_PATH + subset + '/'
-        OUTPUT_PATH = '../../../../output/build-simple-model' + subset
+        OUTPUT_PATH = '../../../../output/build-simple-model/' + subset
         FILE_LIST = glob(LUNA_SUBSET_PATH + '*.mhd')
 
 
