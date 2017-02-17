@@ -45,9 +45,9 @@ def make_mask(center,diam,z,width,height,spacing,origin):
     return(mask)
 
 # Getting list of image files
-LUNA_DATA_PATH = '../../../data/luna16/'
+LUNA_DATA_PATH = '../../../../data/luna16/'
 LUNA_SUBSET_PATH = LUNA_DATA_PATH + 'subset0/'
-OUTPUT_PATH = '../../../output/build-simple-model'
+OUTPUT_PATH = '../../../../output/build-simple-model'
 FILE_LIST = glob(LUNA_SUBSET_PATH + '*.mhd')
 
 # Helper function to get rows in data frame associated with each file
