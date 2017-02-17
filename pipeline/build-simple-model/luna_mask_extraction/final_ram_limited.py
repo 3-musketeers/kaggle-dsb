@@ -57,7 +57,7 @@ def get_filename(file_list, case):
             return(f)
 # The locations of the nodes
 df_node = pd.read_csv(LUNA_DATA_PATH + "annotations.csv")
-df_node["file"] = df_node["seriesuid"].map(lambda file_name: get_filename(file_list, file_name))
+df_node["file"] = df_node["seriesuid"].map(lambda file_name: get_filename(FILE_LIST, file_name))
 df_node = df_node.dropna()
 
 # Looping over the image files
