@@ -15,6 +15,6 @@
 
 To run the program with memory restrictions:
 ```python
-python -m memory_profiler --pdb-mmem=X C:\Users\kyhan\Desktop\kaggle-dsb\code\pipeline\build-simple-model\luna_mask_extraction\final_run_file.py
+python -m memory_profiler --pdb-mmem=X C:\Users\kyhan\Desktop\kaggle-dsb\code\pipeline\build-simple-model\luna-mask-extraction\final_run_file.py
 ```
 where X is a number representing the memory threshold in MB ([reference](https://github.com/fabianp/memory_profiler#setting-debugger-breakpoints))
