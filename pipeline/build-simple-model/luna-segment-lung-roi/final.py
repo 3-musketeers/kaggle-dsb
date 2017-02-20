@@ -70,3 +70,7 @@ for img_file in FILE_LIST:
         mask = morphology.dilation(mask,np.ones([10,10])) # one last dilation
         imgs_to_process[i] = mask
     np.save(img_file.replace("images","lungmask"),imgs_to_process)
+    
+FILE_LIST = glob(WORKING_PATH + "lungmask_*.npy")
+out_images = []      # final set of images
+out_nodemasks = []   # final set of nodemasks
