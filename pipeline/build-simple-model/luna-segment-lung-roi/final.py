@@ -84,4 +84,13 @@ for fname in file_list:
         node_mask = node_masks[i]
         img = imgs_to_process[i]
         new_size = [512,512]   # we're scaling back up to the original size of the image
-        img= mask*img          # apply lung mask
+        img = mask*img          # apply lung mask
+        # renormalizing the masked image (in the mask region)
+        new_mean = np.mean(img[mask>0])  
+        new_std = np.std(img[mask>0])
+        # Pulling the background color up to the lower end
+        # of the pixel range for the lungs
+        old_min = np.min(img)       # background color
+        img[img==old_min] = new_mean-1.2*new_std   # resetting backgound color
+        img = img-new_mean
+        img = img/new_std
