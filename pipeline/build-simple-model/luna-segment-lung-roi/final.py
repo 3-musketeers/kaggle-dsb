@@ -79,3 +79,4 @@ for fname in file_list:
     imgs_to_process = np.load(fname.replace("lungmask","images"))
     masks = np.load(fname)
     node_masks = np.load(fname.replace("lungmask","masks"))
+    for i in range(len(imgs_to_process)):
