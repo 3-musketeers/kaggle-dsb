@@ -29,3 +29,11 @@ for img_file in FILE_LIST:
         # underflow and overflow on the pixel spectrum
         img[img==max]=mean
         img[img==min]=mean
+        # Using Kmeans to separate foreground (radio-opaque tissue)
+        # and background (radio transparent tissue ie lungs)
+        # Doing this only on the center of the image to avoid 
+        # the non-tissue parts of the image as much as possible
+        kmeans = KMeans(n_clusters=2).fit(np.reshape(middle,[np.prod(middle.shape),1]))
+        centers = sorted(kmeans.cluster_centers_.flatten())
+        threshold = np.mean(centers)
+        thresh_img = np.where(img<threshold,1.0,0.0)  # threshold the image
