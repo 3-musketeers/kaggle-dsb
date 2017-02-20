@@ -37,3 +37,9 @@ for img_file in FILE_LIST:
         centers = sorted(kmeans.cluster_centers_.flatten())
         threshold = np.mean(centers)
         thresh_img = np.where(img<threshold,1.0,0.0)  # threshold the image
+        # I found an initial erosion helful for removing graininess from some of the regions
+        # and then large dialation is used to make the lung region 
+        # engulf the vessels and incursions into the lung cavity by 
+        # radio opaque tissue
+        eroded = morphology.erosion(thresh_img,np.ones([4,4]))
+        dilation = morphology.dilation(eroded,np.ones([10,10]))
