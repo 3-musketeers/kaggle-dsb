@@ -118,3 +118,21 @@ for fname in file_list:
             max_row=min_row+width
         else:
             max_col = min_col+height
+        # cropping the image down to the bounding box for all regions
+        # (there's probably an skimage command that can do this in one line)
+        img = img[min_row:max_row,min_col:max_col]
+        # does not seem useful to crop the mask
+        # mask =  mask[min_row:max_row,min_col:max_col] 
+        if max_row-min_row <5 or max_col-min_col<5:  # skipping all images with no good regions
+            pass
+        else:
+            # moving range to -1 to 1 to accomodate the resize function
+            mean = np.mean(img)
+            img = img - mean
+            min = np.min(img)
+            max = np.max(img)
+            img = img/(max-min)
+            new_img = resize(img,[512,512])
+            new_node_mask = resize(node_mask[min_row:max_row,min_col:max_col],[512,512])
+            out_images.append(new_img)
+            out_nodemasks.append(new_node_mask)
