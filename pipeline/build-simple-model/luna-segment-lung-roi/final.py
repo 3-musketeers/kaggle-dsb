@@ -94,3 +94,6 @@ for fname in file_list:
         img[img==old_min] = new_mean-1.2*new_std   # resetting backgound color
         img = img-new_mean
         img = img/new_std
+        # make image bounding box  (min row, min col, max row, max col)
+        labels = measure.label(mask)
+        regions = measure.regionprops(labels)
