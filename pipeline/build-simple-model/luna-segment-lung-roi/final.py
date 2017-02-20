@@ -80,3 +80,8 @@ for fname in file_list:
     masks = np.load(fname)
     node_masks = np.load(fname.replace("lungmask","masks"))
     for i in range(len(imgs_to_process)):
+        mask = masks[i]
+        node_mask = node_masks[i]
+        img = imgs_to_process[i]
+        new_size = [512,512]   # we're scaling back up to the original size of the image
+        img= mask*img          # apply lung mask
