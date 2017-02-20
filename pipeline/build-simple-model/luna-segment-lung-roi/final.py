@@ -97,3 +97,24 @@ for fname in file_list:
         # make image bounding box  (min row, min col, max row, max col)
         labels = measure.label(mask)
         regions = measure.regionprops(labels)
+        # Finding the global min and max row over all regions
+        min_row = 512
+        max_row = 0
+        min_col = 512
+        max_col = 0
+        for prop in regions:
+            B = prop.bbox
+            if min_row > B[0]:
+                min_row = B[0]
+            if min_col > B[1]:
+                min_col = B[1]
+            if max_row < B[2]:
+                max_row = B[2]
+            if max_col < B[3]:
+                max_col = B[3]
+        width = max_col-min_col
+        height = max_row - min_row
+        if width > height:
+            max_row=min_row+width
+        else:
+            max_col = min_col+height
