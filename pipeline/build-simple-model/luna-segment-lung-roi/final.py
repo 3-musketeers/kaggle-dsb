@@ -62,3 +62,11 @@ for img_file in FILE_LIST:
                 good_labels.append(prop.label)
         mask = np.ndarray([512,512],dtype=np.int8)
         mask[:] = 0
+        #  The mask here is the mask for the lungs--not the nodes
+        #  After just the lungs are left, we do another large dilation
+        #  in order to fill in and out the lung mask 
+        for N in good_labels:
+            mask = mask + np.where(labels==N,1,0)
+        mask = morphology.dilation(mask,np.ones([10,10])) # one last dilation
+        imgs_to_process[i] = mask
+    np.save(img_file.replace("images","lungmask"),imgs_to_process)
