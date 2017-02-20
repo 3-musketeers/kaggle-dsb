@@ -43,3 +43,22 @@ for img_file in FILE_LIST:
         # radio opaque tissue
         eroded = morphology.erosion(thresh_img,np.ones([4,4]))
         dilation = morphology.dilation(eroded,np.ones([10,10]))
+        #  Label each region and obtain the region properties
+        #  The background region is removed by removing regions 
+        #  with a bbox that is to large in either dimnsion
+        #  Also, the lungs are generally far away from the top 
+        #  and bottom of the image, so any regions that are too
+        #  close to the top and bottom are removed
+        #  This does not produce a perfect segmentation of the lungs
+        #  from the image, but it is surprisingly good considering its
+        #  simplicity. 
+        labels = measure.label(dilation)
+        label_vals = np.unique(labels)
+        regions = measure.regionprops(labels)
+        good_labels = []
+        for prop in regions:
+            B = prop.bbox
+            if B[2]-B[0]<475 and B[3]-B[1]<475 and B[0]>40 and B[2]<472:
+                good_labels.append(prop.label)
+        mask = np.ndarray([512,512],dtype=np.int8)
+        mask[:] = 0
