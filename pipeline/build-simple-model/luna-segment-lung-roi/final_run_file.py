@@ -4,11 +4,13 @@ from skimage import measure
 from sklearn.cluster import KMeans
 from skimage.transform import resize
 from glob import glob
+import os
+
 @profile
 def runall():
     WORKING_PATH = "../../../../output/build-simple-model/"
     FILE_LIST = glob(WORKING_PATH + "images_*.npy")
-
+    
     for img_file in FILE_LIST:
         # I ran into an error when using Kmean on np.float16, so I'm using np.float64 here
         imgs_to_process = np.load(img_file).astype(np.float64) 
@@ -70,7 +72,9 @@ def runall():
                 mask = mask + np.where(labels==N,1,0)
             mask = morphology.dilation(mask,np.ones([10,10])) # one last dilation
             imgs_to_process[i] = mask
+        
         np.save(img_file.replace("images","lungmask"),imgs_to_process)
+
 
     FILE_LIST = glob(WORKING_PATH + "lungmask_*.npy")
     out_images = []      # final set of images
