@@ -4,7 +4,6 @@ from skimage import measure
 from sklearn.cluster import KMeans
 from skimage.transform import resize
 from glob import glob
-import os
 
 @profile
 def runall():
