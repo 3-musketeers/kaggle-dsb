@@ -144,3 +144,6 @@ final_masks = np.ndarray([num_images,1,512,512],dtype=np.float32)
 for i in range(num_images):
     final_images[i,0] = out_images[i]
     final_masks[i,0] = out_nodemasks[i]
+
+np.save(WORKING_PATH + "trainImages.npy", final_images)
+np.save(WORKING_PATH + "trainMasks.npy", final_masks)
