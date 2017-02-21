@@ -12,9 +12,11 @@
 ## To Run Final:
 1. Open anaconda prompt
 2. `activate kaggledsb`
+3. `cd` into the directory that `final_run_file.py` is located in 
+   * example) `cd C:\Users\kyhan\Desktop\kaggle-dsb\code\pipeline\build-simple-model\luna-mask-extraction`
 
 To run the program with memory restrictions:
 ```python
-python -m memory_profiler --pdb-mmem=X C:\Users\kyhan\Desktop\kaggle-dsb\code\pipeline\build-simple-model\luna-mask-extraction\final_run_file.py
+python -m memory_profiler --pdb-mmem=X final_run_file.py
 ```
 where X is a number representing the memory threshold in MB ([reference](https://github.com/fabianp/memory_profiler#setting-debugger-breakpoints))
