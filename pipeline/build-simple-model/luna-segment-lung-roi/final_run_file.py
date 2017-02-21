@@ -12,7 +12,7 @@ def runall():
     for img_file in FILE_LIST:
         # I ran into an error when using Kmean on np.float16, so I'm using np.float64 here
         imgs_to_process = np.load(img_file).astype(np.float64) 
-        print "on image", img_file
+        print("on image", img_file)
         for i in range(len(imgs_to_process)):
             img = imgs_to_process[i]
             #Standardize the pixel values
@@ -76,7 +76,7 @@ def runall():
     out_images = []      # final set of images
     out_nodemasks = []   # final set of nodemasks
     for fname in file_list:
-        print "working on file ", fname
+        print("working on file ", fname)
         imgs_to_process = np.load(fname.replace("lungmask","images"))
         masks = np.load(fname)
         node_masks = np.load(fname.replace("lungmask","masks"))
