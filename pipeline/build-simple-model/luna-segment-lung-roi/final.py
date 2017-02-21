@@ -136,3 +136,11 @@ for fname in file_list:
             new_node_mask = resize(node_mask[min_row:max_row,min_col:max_col],[512,512])
             out_images.append(new_img)
             out_nodemasks.append(new_node_mask)
+
+num_images = len(out_images)
+#  Writing out images and masks as 1 channel arrays for input into network
+final_images = np.ndarray([num_images,1,512,512],dtype=np.float32)
+final_masks = np.ndarray([num_images,1,512,512],dtype=np.float32)
+for i in range(num_images):
+    final_images[i,0] = out_images[i]
+    final_masks[i,0] = out_nodemasks[i]
