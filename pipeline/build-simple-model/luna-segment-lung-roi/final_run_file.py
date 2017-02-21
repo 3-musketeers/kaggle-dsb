@@ -75,7 +75,7 @@ def runall():
     FILE_LIST = glob(WORKING_PATH + "lungmask_*.npy")
     out_images = []      # final set of images
     out_nodemasks = []   # final set of nodemasks
-    for fname in file_list:
+    for fname in FILE_LIST:
         print("working on file ", fname)
         imgs_to_process = np.load(fname.replace("lungmask","images"))
         masks = np.load(fname)
