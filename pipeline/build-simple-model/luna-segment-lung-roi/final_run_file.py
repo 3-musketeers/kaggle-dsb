@@ -148,7 +148,11 @@ def runall():
     for i in range(num_images):
         final_images[i,0] = out_images[i]
         final_masks[i,0] = out_nodemasks[i]
-
-    np.save(WORKING_PATH + "trainImages.npy", final_images)
-    np.save(WORKING_PATH + "trainMasks.npy", final_masks)
+  
+    rand_i = np.random.choice(range(num_images),size=num_images,replace=False)
+    test_i = int(0.2*num_images)
+    np.save(WORKING_PATH+"trainImages.npy",final_images[rand_i[test_i:]])
+    np.save(WORKING_PATH+"trainMasks.npy",final_masks[rand_i[test_i:]])
+    np.save(WORKING_PATH+"testImages.npy",final_images[rand_i[:test_i]])
+    np.save(WORKING_PATH+"testMasks.npy",final_masks[rand_i[:test_i]])
 runall()
