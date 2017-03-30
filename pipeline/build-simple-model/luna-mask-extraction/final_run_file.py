@@ -9,6 +9,7 @@ How to run:
   - run file
 Information:
   - 3 subsets only yields about 184 img, mask pairs (about 61 per subset)
+  - 3 more subsets will probably yield 367 img, mask pairs (which is considerably better)
 """
 
 from __future__ import print_function, division
