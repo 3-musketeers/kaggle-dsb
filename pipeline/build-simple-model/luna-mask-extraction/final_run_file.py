@@ -1,3 +1,16 @@
+"""
+Purpose: run over the patient images from subset0, subset1, and subset2 (267 patients) of the luna16 data to generate nodule masks
+Details:
+  - only takes 3 slices (in 2D) from each patient
+  - the mask leaves a little space surrouding the nodule (instead of just containing the nodule)
+How to run:
+  - have the data from luna16 in data/luna16/ (data is a folder at the same level as the root of this code folder)
+  - install dependencies
+  - run file
+
+"""
+
+
 from __future__ import print_function, division
 import SimpleITK as sitk
 import numpy as np
