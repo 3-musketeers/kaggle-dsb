@@ -7,7 +7,8 @@ How to run:
   - have the data from luna16 in data/luna16/ (data is a folder at the same level as the root of this code folder)
   - install dependencies
   - run file
-
+Information:
+  - 3 subsets only yields about 184 img, mask pairs (about 61 per subset)
 """
 
 from __future__ import print_function, division
@@ -108,4 +109,3 @@ for subsetnum, subsetlist in enumerate(FILE_LIST):
                     imgs[i] = img_array[i_z]
                 np.save(os.path.join(OUTPUT_PATH,"images_%04d_%04d_%04d.npy" % (subsetnum, fcount, node_idx)),imgs)
                 np.save(os.path.join(OUTPUT_PATH,"masks_%04d_%04d_%04d.npy" % (subsetnum, fcount, node_idx)),masks)
-                break
