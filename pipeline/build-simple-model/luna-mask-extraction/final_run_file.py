@@ -70,7 +70,7 @@ OUTPUT_PATH = '../../../../output/build-simple-model'
 
 # create a list of subsets, which are lists of file paths
 FILE_LIST = []
-for i in range(0, 3):
+for i in range(0, 6):
     LUNA_SUBSET_PATH = LUNA_DATA_PATH + 'subset'+str(i)+'/'
     FILE_LIST.append(glob(LUNA_SUBSET_PATH + '*.mhd'))
 
