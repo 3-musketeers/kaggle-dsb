@@ -4,7 +4,10 @@ Details:
   - only takes 3 slices (in 2D) from each patient
   - the mask leaves a little space surrouding the nodule (instead of just containing the nodule)
 How to run:
-  - have the data from luna16 in data/luna16/ (data is a folder at the same level as the root of this code folder)
+  - copy over this entire repository
+  - have the data from luna16 in data/luna16/ (data is a folder at the same level as the repository folder)
+    - this includes subsets 0 up to and including subset5, and the annotations file
+  - create folder output/build-simple-model/ (output is a folder at the same level as the repository folder)
   - install dependencies
   - run file
 Information:
