@@ -71,38 +71,41 @@ FILE_LIST = []
 for i in range(0, 3):
     LUNA_SUBSET_PATH = LUNA_DATA_PATH + 'subset'+str(i)+'/'
     FILE_LIST.append(glob(LUNA_SUBSET_PATH + '*.mhd'))
-    
-# The locations of the nodes
-df_node = pd.read_csv(LUNA_DATA_PATH + "annotations.csv")
-df_node["file"] = df_node["seriesuid"].map(lambda file_name: get_filename(FILE_LIST, file_name))
-df_node = df_node.dropna()
 
-# Looping over the image files
-for fcount, img_file in enumerate(tqdm(FILE_LIST)):
-    mini_df = df_node[df_node["file"]==img_file] # get all nodules associate with file
-    if mini_df.shape[0]>0: # some files may not have a nodule--skipping those
-        # load the data once
-        itk_img = sitk.ReadImage(img_file)
-        img_array = sitk.GetArrayFromImage(itk_img) # indexes are z,y,x (notice the ordering)
-        num_z, height, width = img_array.shape
-        origin = np.array(itk_img.GetOrigin())      # x,y,z Origin in world coordinates (mm)
-        spacing = np.array(itk_img.GetSpacing())    # spacing of voxels in world coordinates (mm)
-        # go through all nodes
-        for node_idx, cur_row in mini_df.iterrows():
-            node_x = cur_row["coordX"]
-            node_y = cur_row["coordY"]
-            node_z = cur_row["coordZ"]
-            diam = cur_row["diameter_mm"]
-            # just keep 3 slices
-            imgs = np.ndarray([3,height,width],dtype=np.float32) # defining final products
-            masks = np.ndarray([3,height,width],dtype=np.uint8)
-            center = np.array([node_x, node_y, node_z])   # nodule center
-            v_center = np.rint((center-origin)/spacing)  # nodule center in voxel space (still x,y,z ordering)
-            for i, i_z in enumerate(np.arange(int(v_center[2])-1,
-                             int(v_center[2])+2).clip(0, num_z-1)): # clip prevents going out of bounds in Z
-                mask = make_mask(center, diam, i_z*spacing[2]+origin[2],
-                                 width, height, spacing, origin)
-                masks[i] = mask
-                imgs[i] = img_array[i_z]
-            np.save(os.path.join(OUTPUT_PATH,"images_%04d_%04d.npy" % (fcount, node_idx)),imgs)
-            np.save(os.path.join(OUTPUT_PATH,"masks_%04d_%04d.npy" % (fcount, node_idx)),masks)
+
+for subsetnum, subsetlist in enumerate(FILE_LIST):
+    # The locations of the nodes
+    df_node = pd.read_csv(LUNA_DATA_PATH + "annotations.csv")
+    df_node["file"] = df_node["seriesuid"].map(lambda file_name: get_filename(subsetlist, file_name))
+    df_node = df_node.dropna()
+
+    # Looping over the image files
+    for fcount, img_file in enumerate(tqdm(subsetlist)):
+        mini_df = df_node[df_node["file"]==img_file] # get all nodules associate with file
+        if mini_df.shape[0]>0: # some files may not have a nodule--skipping those
+            # load the data once
+            itk_img = sitk.ReadImage(img_file)
+            img_array = sitk.GetArrayFromImage(itk_img) # indexes are z,y,x (notice the ordering)
+            num_z, height, width = img_array.shape
+            origin = np.array(itk_img.GetOrigin())      # x,y,z Origin in world coordinates (mm)
+            spacing = np.array(itk_img.GetSpacing())    # spacing of voxels in world coordinates (mm)
+            # go through all nodes
+            for node_idx, cur_row in mini_df.iterrows():
+                node_x = cur_row["coordX"]
+                node_y = cur_row["coordY"]
+                node_z = cur_row["coordZ"]
+                diam = cur_row["diameter_mm"]
+                # just keep 3 slices
+                imgs = np.ndarray([3,height,width],dtype=np.float32) # defining final products
+                masks = np.ndarray([3,height,width],dtype=np.uint8)
+                center = np.array([node_x, node_y, node_z])   # nodule center
+                v_center = np.rint((center-origin)/spacing)  # nodule center in voxel space (still x,y,z ordering)
+                for i, i_z in enumerate(np.arange(int(v_center[2])-1,
+                                 int(v_center[2])+2).clip(0, num_z-1)): # clip prevents going out of bounds in Z
+                    mask = make_mask(center, diam, i_z*spacing[2]+origin[2],
+                                     width, height, spacing, origin)
+                    masks[i] = mask
+                    imgs[i] = img_array[i_z]
+                np.save(os.path.join(OUTPUT_PATH,"images_%04d_%04d_%04d.npy" % (subsetnum, fcount, node_idx)),imgs)
+                np.save(os.path.join(OUTPUT_PATH,"masks_%04d_%04d_%04d.npy" % (subsetnum, fcount, node_idx)),masks)
+                break
