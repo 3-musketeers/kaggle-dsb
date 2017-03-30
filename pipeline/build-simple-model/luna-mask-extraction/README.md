@@ -10,6 +10,15 @@
 * final_run_file.py -- the file to be run over the entire dataset to produce final results
 
 ## To Run Final:
+1. Open anaconda prompt
+2. `activate kaggledsb`
+3. `cd` into the directory that `final_run_file.py` is located in 
+   * example) `cd C:\Users\kyhan\Desktop\kaggle-dsb\code\pipeline\build-simple-model\luna-mask-extraction`
+
+To run the program:
+```python
+python final_run_file.pyd
+```
 
 ## To Run With Memory Restrictions:
 1. Open anaconda prompt
