@@ -56,6 +56,12 @@ def make_mask(center,diam,z,width,height,spacing,origin):
                 mask[int((p_y-origin[1])/spacing[1]),int((p_x-origin[0])/spacing[0])] = 1.0
     return(mask)
 
+# Helper function to get rows in data frame associated with each file
+def get_filename(file_list, case):
+    for f in file_list:
+        if case in f:
+            return(f)
+
 # Getting list of image files
 LUNA_DATA_PATH = '../../../../data/luna16/'
 OUTPUT_PATH = '../../../../output/build-simple-model'
@@ -65,12 +71,7 @@ FILE_LIST = []
 for i in range(0, 3):
     LUNA_SUBSET_PATH = LUNA_DATA_PATH + 'subset'+str(i)+'/'
     FILE_LIST.append(glob(LUNA_SUBSET_PATH + '*.mhd'))
-
-# Helper function to get rows in data frame associated with each file
-def get_filename(file_list, case):
-    for f in file_list:
-        if case in f:
-            return(f)
+    
 # The locations of the nodes
 df_node = pd.read_csv(LUNA_DATA_PATH + "annotations.csv")
 df_node["file"] = df_node["seriesuid"].map(lambda file_name: get_filename(FILE_LIST, file_name))
