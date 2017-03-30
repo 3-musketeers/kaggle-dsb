@@ -1,5 +1,5 @@
 """
-Purpose: run over the patient images from subset0 up to subset5 (534 patients) of the luna16 data to generate nodule masks
+Purpose: run over the patient images from subset0 up to and including subset5 (534 patients) of the luna16 data to generate nodule masks
 Details:
   - only takes 3 slices (in 2D) from each patient
   - the mask leaves a little space surrouding the nodule (instead of just containing the nodule)
