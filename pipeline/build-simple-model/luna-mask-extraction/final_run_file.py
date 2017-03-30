@@ -10,7 +10,6 @@ How to run:
 
 """
 
-
 from __future__ import print_function, division
 import SimpleITK as sitk
 import numpy as np
@@ -59,9 +58,13 @@ def make_mask(center,diam,z,width,height,spacing,origin):
 
 # Getting list of image files
 LUNA_DATA_PATH = '../../../../data/luna16/'
-LUNA_SUBSET_PATH = LUNA_DATA_PATH + 'subset0/'
 OUTPUT_PATH = '../../../../output/build-simple-model'
-FILE_LIST = glob(LUNA_SUBSET_PATH + '*.mhd')
+
+# create a list of subsets, which are lists of file paths
+FILE_LIST = []
+for i in range(0, 3):
+    LUNA_SUBSET_PATH = LUNA_DATA_PATH + 'subset'+str(i)+'/'
+    FILE_LIST.append(glob(LUNA_SUBSET_PATH + '*.mhd'))
 
 # Helper function to get rows in data frame associated with each file
 def get_filename(file_list, case):
