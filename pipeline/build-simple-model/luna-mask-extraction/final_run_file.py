@@ -1,5 +1,5 @@
 """
-Purpose: run over the patient images from subset0, subset1, and subset2 (267 patients) of the luna16 data to generate nodule masks
+Purpose: run over the patient images from subset0 up to subset5 (534 patients) of the luna16 data to generate nodule masks
 Details:
   - only takes 3 slices (in 2D) from each patient
   - the mask leaves a little space surrouding the nodule (instead of just containing the nodule)
@@ -9,7 +9,7 @@ How to run:
   - run file
 Information:
   - 3 subsets only yields about 184 img, mask pairs (about 61 per subset)
-  - 3 more subsets will probably yield 367 img, mask pairs (which is considerably better)
+  - 6 subsets will probably yield 367 img, mask pairs (which is considerably better)
 """
 
 from __future__ import print_function, division
