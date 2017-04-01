@@ -17,7 +17,7 @@
 
 To run the program:
 ```python
-python final_run_file.pyd
+python final_run_file.py
 ```
 
 ## To Run With Memory Restrictions:
