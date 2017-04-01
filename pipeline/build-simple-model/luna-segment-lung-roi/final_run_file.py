@@ -9,7 +9,7 @@ from glob import glob
 def runall():
     WORKING_PATH = "../../../../output/build-simple-model/"
     FILE_LIST = glob(WORKING_PATH + "images_*.npy")
-    
+
     for img_file in FILE_LIST:
         # I ran into an error when using Kmean on np.float16, so I'm using np.float64 here
         imgs_to_process = np.load(img_file).astype(np.float64) 
@@ -71,9 +71,7 @@ def runall():
                 mask = mask + np.where(labels==N,1,0)
             mask = morphology.dilation(mask,np.ones([10,10])) # one last dilation
             imgs_to_process[i] = mask
-        
         np.save(img_file.replace("images","lungmask"),imgs_to_process)
-
 
     FILE_LIST = glob(WORKING_PATH + "lungmask_*.npy")
     out_images = []      # final set of images
@@ -148,11 +146,7 @@ def runall():
     for i in range(num_images):
         final_images[i,0] = out_images[i]
         final_masks[i,0] = out_nodemasks[i]
-  
-    rand_i = np.random.choice(range(num_images),size=num_images,replace=False)
-    test_i = int(0.2*num_images)
-    np.save(WORKING_PATH+"trainImages.npy",final_images[rand_i[test_i:]])
-    np.save(WORKING_PATH+"trainMasks.npy",final_masks[rand_i[test_i:]])
-    np.save(WORKING_PATH+"testImages.npy",final_images[rand_i[:test_i]])
-    np.save(WORKING_PATH+"testMasks.npy",final_masks[rand_i[:test_i]])
+
+    np.save(WORKING_PATH + "trainImages.npy", final_images)
+    np.save(WORKING_PATH + "trainMasks.npy", final_masks)
 runall()
