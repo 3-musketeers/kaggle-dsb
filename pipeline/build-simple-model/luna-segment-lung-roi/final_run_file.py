@@ -4,11 +4,16 @@ from skimage import measure
 from sklearn.cluster import KMeans
 from skimage.transform import resize
 from glob import glob
+try:
+    from tqdm import tqdm # long waits are not fun
+except:
+    print('TQDM does make much nicer wait bars...')
+    tqdm = lambda x: x
 
 WORKING_PATH = "../../../../output/build-simple-model/"
 FILE_LIST = glob(WORKING_PATH + "images_*.npy")
 
-for img_file in FILE_LIST:
+for img_file in tqdm(FILE_LIST):
     # I ran into an error when using Kmean on np.float16, so I'm using np.float64 here
     imgs_to_process = np.load(img_file).astype(np.float64) 
     print("on image", img_file)
