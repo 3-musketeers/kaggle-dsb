@@ -7,3 +7,10 @@ from keras.optimizers import Adam
 from keras.optimizers import SGD
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 from keras import backend as K
+
+WORKING_PATH = "../../../../output/build-simple-model/"
+IMG_ROWS = 512
+IMG_COLS = 512
+
+K.set_image_dim_ordering('th')  # Theano dimension ordering in this code
+
