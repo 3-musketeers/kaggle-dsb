@@ -14,3 +14,7 @@ IMG_COLS = 512
 
 K.set_image_dim_ordering('th')  # Theano dimension ordering in this code
 
+def train_and_predict():
+    
+if __name__ == '__main__':
+    train_and_predict()
