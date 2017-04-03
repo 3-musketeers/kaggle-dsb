@@ -14,6 +14,8 @@ IMG_COLS = 512
 
 K.set_image_dim_ordering('th')  # Theano dimension ordering in this code
 
+
+
 def train_and_predict():
     print('-'*30)
     print('Loading and preprocessing train data...')
@@ -29,6 +31,11 @@ def train_and_predict():
 
     imgs_train -= mean  # images should already be standardized, but just in case
     imgs_train /= std
+
+    print('-'*30)
+    print('Creating and compiling model...')
+    print('-'*30)
+    model = get_unet()
 
 if __name__ == '__main__':
     train_and_predict()
