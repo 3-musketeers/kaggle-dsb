@@ -94,5 +94,9 @@ def train_and_predict():
     print('-'*30)
     model = get_unet()
 
+    # Saving weights to unet.hdf5 at checkpoints
+    model_checkpoint = ModelCheckpoint('unet.hdf5', monitor='loss', save_best_only=True)
+    
+    
 if __name__ == '__main__':
     train_and_predict()
