@@ -1,5 +1,8 @@
 """
 Purpose: train a machine learning segmenter that can segment out the nodules on a given 2D patient CT scan slice
+Note:
+- this will train from scratch, with no preloaded weights
+- weights are saved to unet.hdf5 in the specified output folder
 """
 
 from __future__ import print_function
@@ -103,6 +106,11 @@ def train_and_predict():
     # Saving weights to unet.hdf5 at checkpoints
     model_checkpoint = ModelCheckpoint('unet.hdf5', monitor='loss', save_best_only=True)
     
+    print('-'*30)
+    print('Fitting model...')
+    print('-'*30)
+    model.fit(imgs_train, imgs_mask_train, batch_size=2, nb_epoch=20, verbose=1, shuffle=True,
+              callbacks=[model_checkpoint])
     
 if __name__ == '__main__':
     train_and_predict()
