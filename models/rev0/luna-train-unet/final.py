@@ -19,13 +19,15 @@ WORKING_PATH = "../../../../output/build-simple-model/"
 IMG_ROWS = 512
 IMG_COLS = 512
 
+SMOOTH = 1.
+
 K.set_image_dim_ordering('th')  # Theano dimension ordering in this code
 
 def dice_coef(y_true, y_pred):
     y_true_f = K.flatten(y_true)
     y_pred_f = K.flatten(y_pred)
     intersection = K.sum(y_true_f * y_pred_f)
-    return (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
+    return (2. * intersection + SMOOTH) / (K.sum(y_true_f) + K.sum(y_pred_f) + SMOOTH)
 
 def dice_coef_loss(y_true, y_pred):
     return -dice_coef(y_true, y_pred)
@@ -34,10 +36,10 @@ def dice_coef_np(y_true,y_pred):
     y_true_f = y_true.flatten()
     y_pred_f = y_pred.flatten()
     intersection = np.sum(y_true_f * y_pred_f)
-    return (2. * intersection + smooth) / (np.sum(y_true_f) + np.sum(y_pred_f) + smooth)
+    return (2. * intersection + SMOOTH) / (np.sum(y_true_f) + np.sum(y_pred_f) + SMOOTH)
 
 def get_unet():
-    inputs = Input((1,img_rows, img_cols))
+    inputs = Input((1,IMG_ROWS, IMG_COLS))
     conv1 = Convolution2D(32, 3, 3, activation='relu', border_mode='same')(inputs)
     conv1 = Convolution2D(32, 3, 3, activation='relu', border_mode='same')(conv1)
     pool1 = MaxPooling2D(pool_size=(2, 2))(conv1)
@@ -86,11 +88,11 @@ def train_and_predict():
     print('-'*30)
     print('Loading and preprocessing train data...')
     print('-'*30)
-    imgs_train = np.load(working_path+"trainImages.npy").astype(np.float32)
-    imgs_mask_train = np.load(working_path+"trainMasks.npy").astype(np.float32)
+    imgs_train = np.load(WORKING_PATH+"trainImages.npy").astype(np.float32)
+    imgs_mask_train = np.load(WORKING_PATH+"trainMasks.npy").astype(np.float32)
 
-    imgs_test = np.load(working_path+"testImages.npy").astype(np.float32)
-    imgs_mask_test_true = np.load(working_path+"testMasks.npy").astype(np.float32)
+    imgs_test = np.load(WORKING_PATH+"testImages.npy").astype(np.float32)
+    imgs_mask_test_true = np.load(WORKING_PATH+"testMasks.npy").astype(np.float32)
     
     mean = np.mean(imgs_train)  # mean for data centering
     std = np.std(imgs_train)  # std for data normalization
